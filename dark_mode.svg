@@ -57,6 +57,6 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="410" class="keyColor">Email</tspan>: <tspan class="valueColor">maxcomperatore@gmail.com</tspan>
 <tspan x="370" y="450" class="keyColor">GitHub Stats</tspan>:
 <tspan x="370" y="470">——————</tspan>
-<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">25</tspan><tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">10</tspan><tspan x="520" y="490" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">2</tspan>
+<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">25</tspan>
 </text>
 </svg>
