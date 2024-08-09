@@ -49,25 +49,26 @@ def get_github_stats():
         svg_content = file.readlines()
 
         for i, line in enumerate(svg_content):
-            if 'Repos' in line:
+            if '<tspan x="370" y="490" class="keyColor">Repos</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">{public_repos}</tspan>'
+                    i] = f'<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">{public_repos}</tspan>\n'
                 break
 
         for i, line in enumerate(svg_content):
-            if 'Stars' in line:
+            if '<tspan x="520" y="490" class="keyColor">|   Stars</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="520" y="490" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">{stars}</tspan>'
+                    i] = f'<tspan x="520" y="490" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">{stars}</tspan>\n'
                 break
 
         for i, line in enumerate(svg_content):
-            if 'Followers' in line:
+            if '<tspan x="370" y="510" class="keyColor">Followers</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">{followers}</tspan>'
+                    i] = f'<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">{followers}</tspan>\n'
                 break
 
     with open(file_path, 'w') as file:
         file.writelines(svg_content)
+
 
 def main():
     update_uptime()
