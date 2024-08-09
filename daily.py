@@ -43,15 +43,16 @@ def get_github_stats():
     repos_data = repos_response.json()
 
     stars = sum(repo['stargazers_count'] for repo in repos_data)
-    forks = sum(repo['fork'] for repo in repos_data)
 
     url = 'https://github-readme-stats.vercel.app/api?username=pyoneerc&include_all_commits=true'
     response = requests.get(url)
     svg_content = ElementTree.fromstring(response.content)
 
     commits_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="commits"]')
+    contributed_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="contribs"]')
 
     commits = commits_element.text
+    contributed = contributed_element.text
 
     with open(file_path, 'r') as file:
         svg_content = file.readlines()
@@ -77,7 +78,7 @@ def get_github_stats():
         for i, line in enumerate(svg_content):
             if '<tspan x="480" y="490" class="keyColor">Contributed</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">{forks}</tspan>\n'
+                    i] = f'<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">{contributed}</tspan>\n'
                 break
 
         for i, line in enumerate(svg_content):
