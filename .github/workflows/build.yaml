@@ -27,9 +27,6 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r cache/requirements.txt
       - name: Update README file
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          USER_NAME: ${{ secrets.USER_NAME }}
         run: python daily.py
       - name: Push changes
         run: |
@@ -38,4 +35,4 @@ jobs:
           git add .
           git diff
           git commit -m "Update README" -a || echo "No changes to commit"
-          git push --set-upstream https://${{ secrets.ACCESS_TOKEN }}:x-oauth-basic@github.com/pyoneerC/pyoneerC.git
+          git push
