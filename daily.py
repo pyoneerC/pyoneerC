@@ -2,7 +2,6 @@ from datetime import date
 
 import requests
 from dateutil.relativedelta import relativedelta
-from bs4 import BeautifulSoup
 
 
 def update_uptime():
