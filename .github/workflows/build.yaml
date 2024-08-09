@@ -30,8 +30,8 @@ jobs:
         run: python daily.py
       - name: Push changes
         run: |
-          git config --global user.name "pyoneerC/pyoneerC"
-          git config --global user.email "pyoneerC@pyoneerC.github.io" 
+          git config --global user.name "pyoneerC/GitHub-Actions-Bot"
+          git config --global user.email "github-actions-bot@pyoneerc.github.io" 
           git add .
           git diff
           git commit -m "Update README" -a || echo "No changes to commit"
