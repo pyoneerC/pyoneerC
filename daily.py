@@ -3,8 +3,9 @@ from dateutil.relativedelta import relativedelta
 import requests
 from xml.etree import ElementTree
 
+
 def update_uptime():
-    file_path = 'dark_mode.svg'
+    file_paths = ['dark_mode.svg', 'light_mode.svg']
     start_date = date(2005, 3, 3)
     current_date = date.today()
 
@@ -13,8 +14,9 @@ def update_uptime():
     months = difference.months
     days = difference.days
 
-    with open(file_path, 'r') as file:
-        svg_content = file.readlines()
+    for file_path in file_paths:
+        with open(file_path, 'r') as file:
+            svg_content = file.readlines()
 
         months_message = f'{months} mes' if months == 1 else 'meses'
         days_message = f'{days} día' if days == 1 else 'días'
