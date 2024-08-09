@@ -81,9 +81,9 @@ def get_github_stats():
                 break
 
         for i, line in enumerate(svg_content):
-            if '<tspan x="640" y="510" class="keyColor">|   Commits</tspan>' in line:
+            if '<tspan x="660" y="510" class="keyColor">|   Commits</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="640" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">{commits}</tspan>\n'
+                    i] = f'<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">{commits}</tspan>\n'
                 break
 
     with open(file_path, 'w') as file:
