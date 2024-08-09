@@ -38,6 +38,12 @@ def get_github_stats():
     public_repos = data['public_repos']
     followers = data['followers']
 
+    repos_url = data['repos_url']
+    repos_response = requests.get(repos_url)
+    repos_data = repos_response.json()
+
+    stars = sum(repo['stargazers_count'] for repo in repos_data)
+
     file_path = 'dark_mode.svg'
     with open(file_path, 'r') as file:
         svg_content = file.readlines()
@@ -54,6 +60,12 @@ def get_github_stats():
                     i] = f'<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">{followers}</tspan>\n'
                 break
 
+        for i, line in enumerate(svg_content):
+            if 'Stars' in line:
+                svg_content[
+                    i] = f'<tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">{stars}</tspan>\n'
+                break
+                
 
 def main():
     update_uptime()
