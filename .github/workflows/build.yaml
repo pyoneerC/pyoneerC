@@ -31,7 +31,7 @@ jobs:
       - name: Push changes
         run: |
           git config --global user.name "pyoneerC/pyoneerC"
-          git config --global user.email "pyoneerC@pyoneerC.github.io"
+          git config --global user.email "pyoneerC@pyoneerC.github.io" 
           git add .
           git diff
           git commit -m "Update README" -a || echo "No changes to commit"
