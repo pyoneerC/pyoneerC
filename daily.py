@@ -31,7 +31,7 @@ def update_uptime():
 
 def get_github_stats():
     url = 'https://api.github.com/users/pyoneerc'
-    file_path = 'dark_mode.svg'
+    file_paths = ['dark_mode.svg', 'light_mode.svg']
     response = requests.get(url)
     data = response.json()
 
@@ -52,12 +52,9 @@ def get_github_stats():
     contributed_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="contribs"]')
     prs_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs"]')
 
-    commits = commits_element.text
-    contributed = contributed_element.text
-    prs = prs_element.text
-
-    with open(file_path, 'r') as file:
-        svg_content = file.readlines()
+    for file_path in file_paths:
+        with open(file_path, 'r') as file:
+            svg_content = file.readlines()
 
         for i, line in enumerate(svg_content):
             if '<tspan x="370" y="490" class="keyColor">Repos</tspan>' in line:
@@ -80,23 +77,23 @@ def get_github_stats():
         for i, line in enumerate(svg_content):
             if '<tspan x="480" y="490" class="keyColor">Contributed</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">{contributed}</tspan>\n'
+                    i] = f'<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">{contributed_element.text}</tspan>\n'
                 break
 
         for i, line in enumerate(svg_content):
             if '<tspan x="660" y="510" class="keyColor">|   Commits</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">{commits}</tspan>\n'
+                    i] = f'<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">{commits_element.text}</tspan>\n'
                 break
 
         for i, line in enumerate(svg_content):
             if '<tspan x="660" y="490" class="keyColor">|   PRs</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="660" y="490" class="keyColor">|   PRs</tspan>: <tspan class="valueColor">{prs}</tspan>\n'
+                    i] = f'<tspan x="660" y="490" class="keyColor">|   PRs</tspan>: <tspan class="valueColor">{prs_element.text}</tspan>\n'
                 break
 
-    with open(file_path, 'w') as file:
-        file.writelines(svg_content)
+        with open(file_path, 'w') as file:
+            file.writelines(svg_content)
 
 
 def main():
