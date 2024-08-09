@@ -51,13 +51,13 @@ def get_github_stats():
         for i, line in enumerate(svg_content):
             if 'Repos' in line:
                 svg_content[
-                    i] = f'<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">{public_repos}</tspan>\n'
+                    i] = f'<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">{public_repos}</tspan>'
                 break
 
         for i, line in enumerate(svg_content):
             if 'Followers' in line:
                 svg_content[
-                    i] = f'<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">{followers}</tspan>\n'
+                    i] = f'<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">{followers}</tspan>'
                 break
 
         for i, line in enumerate(svg_content):
