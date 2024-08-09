@@ -37,4 +37,4 @@ jobs:
           git config --global user.email "github-actions-bot@pyoneerc.github.io"
           git add .
           git commit -m "Update README" -a || echo "No changes to commit"
-          git push --set-upstream https://${{ secrets.ACCESS_TOKEN }}@github.com/owner/repo.git main
+          git push
