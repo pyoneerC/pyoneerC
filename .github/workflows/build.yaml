@@ -5,6 +5,7 @@ on:
       - main
   schedule:
     - cron: "0 4 * * *"
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,7 +30,7 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           USER_NAME: ${{ secrets.USER_NAME }}
-        run: python today.py
+        run: python daily.py
       - name: Commit
         run: |-
           git add .
