@@ -32,6 +32,7 @@ def update_uptime():
 
 def get_github_stats():
     url = 'https://api.github.com/users/pyoneerc'
+    file_path = 'dark_mode.svg'
     response = requests.get(url)
     data = response.json()
 
@@ -44,7 +45,6 @@ def get_github_stats():
 
     stars = sum(repo['stargazers_count'] for repo in repos_data)
 
-    file_path = 'dark_mode.svg'
     with open(file_path, 'r') as file:
         svg_content = file.readlines()
 
@@ -65,7 +65,9 @@ def get_github_stats():
                 svg_content[
                     i] = f'<tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">{stars}</tspan>\n'
                 break
-                
+
+    with open(file_path, 'w') as file:
+        file.writelines(svg_content)
 
 def main():
     update_uptime()
