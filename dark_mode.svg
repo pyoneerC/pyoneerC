@@ -61,9 +61,9 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">10</tspan>
 <tspan x="520" y="510" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">6</tspan>
 <tspan x="465" y="490">{
-<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">4</tspan>
+<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">5</tspan>
 }</tspan>
 <tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">1.1k</tspan>
-<tspan x="660" y="490" class="keyColor">|   PRs</tspan>: <tspan class="valueColor">2</tspan>
+<tspan x="660" y="490" class="keyColor">|   PRs</tspan>: <tspan class="valueColor">15</tspan>
 </text>
 </svg>
