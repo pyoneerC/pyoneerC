@@ -47,9 +47,8 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="150" class="keyColor">IDE</tspan>: <tspan class="valueColor">PyCharm, IntelliJ IDEA, Rider</tspan>
 <tspan x="370" y="190" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C#, C++, Rust</tspan>
 <tspan x="370" y="210" class="keyColor">Languages</tspan>.<tspan class="keyColor">Engines</tspan>: <tspan class="valueColor">Unity, Unreal Engine</tspan>
-<tspan x="370" y="230" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">Español, Inglés</tspan>
-<tspan x="370" y="270" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Software</tspan>: <tspan class="valueColor">Desarollo de Videojuegos, IA</tspan>
-<tspan x="370" y="290" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Hardware</tspan>: <tspan class="valueColor">Overclocking, Undervolting</tspan>
+<tspan x="370" y="230" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">Español, Inglés</tspan><tspan x="370" y="270" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Software</tspan>: <tspan class="valueColor">Juegos Indie, Desarrollo de Proyectos</tspan>
+<tspan x="370" y="290" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Hardware</tspan>: <tspan class="valueColor">Running, Senderismo, Cocinar</tspan>
 <tspan x="370" y="330" class="keyColor">Contact</tspan>:
 <tspan x="370" y="350">——————</tspan>
 <tspan x="370" y="370" class="keyColor">Email</tspan>: <tspan class="valueColor">maxcomperatore@gmail.com</tspan>
