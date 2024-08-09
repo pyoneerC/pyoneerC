@@ -44,6 +44,7 @@ def get_github_stats():
     repos_data = repos_response.json()
 
     stars = sum(repo['stargazers_count'] for repo in repos_data)
+    forks = sum(repo['fork'] for repo in repos_data)
 
     with open(file_path, 'r') as file:
         svg_content = file.readlines()
@@ -64,6 +65,12 @@ def get_github_stats():
             if '<tspan x="370" y="510" class="keyColor">Followers</tspan>' in line:
                 svg_content[
                     i] = f'<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">{followers}</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="510" y="490" class="keyColor">Contributed</tspan>' in line:
+                svg_content[
+                    i] = f'<tspan x="510" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">{forks}</tspan>\n'
                 break
 
     with open(file_path, 'w') as file:
