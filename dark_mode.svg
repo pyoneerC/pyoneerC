@@ -59,6 +59,6 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="470">——————</tspan>
 <tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">25</tspan>
 <tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">10</tspan>
-<tspan x="520" y="490" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">6</tspan>
+<tspan x="520" y="510" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">546</tspan>
 </text>
 </svg>
