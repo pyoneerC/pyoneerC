@@ -31,11 +31,10 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           USER_NAME: ${{ secrets.USER_NAME }}
         run: python daily.py
-      - name: Commit
-        run: |-
-          git add .
-          git diff
-          git config --global user.email "github-actions-bot@pyoneerc.github.io"
+      - name: Push changes
+        run: |
           git config --global user.name "pyoneerC/GitHub-Actions-Bot"
-          git commit -m "Updated README" -a || echo "No changes to commit"
-          git push
+          git config --global user.email "github-actions-bot@pyoneerc.github.io"
+          git add .
+          git commit -m "Update README" -a || echo "No changes to commit"
+          git push --set-upstream https://${{ secrets.ACCESS_TOKEN }}@github.com/owner/repo.git main
