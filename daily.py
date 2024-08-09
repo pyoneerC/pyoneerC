@@ -18,8 +18,8 @@ def update_uptime():
         with open(file_path, 'r') as file:
             svg_content = file.readlines()
 
-        months_message = f'{months} mes' if months == 1 else 'meses'
-        days_message = f'{days} día' if days == 1 else 'días'
+        months_message = f'mes' if months == 1 else 'meses'
+        days_message = f'día' if days == 1 else 'días'
 
     for i, line in enumerate(svg_content):
         if 'Uptime' in line:
