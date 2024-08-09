@@ -50,9 +50,11 @@ def get_github_stats():
 
     commits_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="commits"]')
     contributed_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="contribs"]')
+    prs_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs"]')
 
     commits = commits_element.text
     contributed = contributed_element.text
+    prs = prs_element.text
 
     with open(file_path, 'r') as file:
         svg_content = file.readlines()
@@ -85,6 +87,12 @@ def get_github_stats():
             if '<tspan x="660" y="510" class="keyColor">|   Commits</tspan>' in line:
                 svg_content[
                     i] = f'<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">{commits}</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="660" y="490" class="keyColor">|   PRs</tspan>' in line:
+                svg_content[
+                    i] = f'<tspan x="660" y="490" class="keyColor">|   PRs</tspan>: <tspan class="valueColor">{prs}</tspan>\n'
                 break
 
     with open(file_path, 'w') as file:
