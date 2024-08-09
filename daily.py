@@ -1,8 +1,7 @@
 from datetime import date
-
-import requests
 from dateutil.relativedelta import relativedelta
-
+import requests
+from xml.etree import ElementTree
 
 def update_uptime():
     file_path = 'dark_mode.svg'
@@ -45,7 +44,14 @@ def get_github_stats():
 
     stars = sum(repo['stargazers_count'] for repo in repos_data)
     forks = sum(repo['fork'] for repo in repos_data)
-    commits = sum(repo['commits'] for repo in repos_data)
+
+    url = 'https://github-readme-stats.vercel.app/api?username=pyoneerc&include_all_commits=true'
+    response = requests.get(url)
+    svg_content = ElementTree.fromstring(response.content)
+
+    commits_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="commits"]')
+
+    commits = commits_element.text
 
     with open(file_path, 'r') as file:
         svg_content = file.readlines()
@@ -77,7 +83,7 @@ def get_github_stats():
         for i, line in enumerate(svg_content):
             if '<tspan x="640" y="510" class="keyColor">|   Commits</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="640" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">{forks}</tspan>\n'
+                    i] = f'<tspan x="640" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">{commits}</tspan>\n'
                 break
 
     with open(file_path, 'w') as file:
