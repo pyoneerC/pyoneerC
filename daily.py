@@ -63,7 +63,7 @@ def get_github_stats():
         for i, line in enumerate(svg_content):
             if 'Stars' in line:
                 svg_content[
-                    i] = f'<tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">{stars}</tspan>\n'
+                    i] = f'<tspan x="520" y="490" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">{stars}</tspan>'
                 break
 
     with open(file_path, 'w') as file:
