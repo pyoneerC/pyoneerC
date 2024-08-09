@@ -63,6 +63,6 @@ text, tspan {white-space: pre;}
 <tspan x="465" y="490">{
 <tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">4</tspan>
 }</tspan>
-<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">234</tspan>
+<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">1.1k</tspan>
 </text>
 </svg>
