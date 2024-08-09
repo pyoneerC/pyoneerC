@@ -32,8 +32,6 @@ def update_uptime():
 
 def get_github_stats():
     url = 'https://api.github.com/users/pyoneerc'
-
-    url = ('https://api.github.com/users/pyoneerc')
     response = requests.get(url)
     data = response.json()
 
