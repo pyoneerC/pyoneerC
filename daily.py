@@ -31,12 +31,15 @@ def update_uptime():
         file.writelines(svg_content)
 
 
-def scrape_repos():
-    url = 'https://github.com/pyoneerC'
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
+def get_github_stats():
+    url = 'https://api.github.com/users/pyoneerc'
 
-    repos = soup.find_all('span', class_='Counter')
+    url = ('https://api.github.com/users/pyoneerc')
+    response = requests.get(url)
+    data = response.json()
+
+    public_repos = data['public_repos']
+    followers = data['followers']
 
     file_path = 'dark_mode.svg'
     with open(file_path, 'r') as file:
@@ -44,13 +47,21 @@ def scrape_repos():
 
         for i, line in enumerate(svg_content):
             if 'Repos' in line:
-                svg_content[i] = f'<tspan x="370" y="110" class="keyColor">Repos</tspan>: <tspan class="valueColor">{repos[0].text}</tspan>\n'
+                svg_content[
+                    i] = f'<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">{public_repos}</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if 'Followers' in line:
+                svg_content[
+                    i] = f'<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">{followers}</tspan>\n'
                 break
 
 
 def main():
     update_uptime()
-    scrape_repos()
+    get_github_stats()
+
 
 if __name__ == '__main__':
     main()
