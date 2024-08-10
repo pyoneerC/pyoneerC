@@ -5,6 +5,11 @@ updates:
     schedule:
       interval: "daily"
 
+  - package-ecosystem: "github-actions"
+    directory: ".github/workflows"
+    schedule:
+      interval: "daily"
+
   - package-ecosystem: "pip"
     directory: "/cache"
     schedule:
