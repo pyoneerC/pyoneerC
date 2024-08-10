@@ -49,3 +49,9 @@ jobs:
           git diff
           git commit -m "Update README" -a || echo "No changes to commit"
           git push
+
+      - name: Send Push Notification
+        uses: techulus/push-github-action@1.2.1
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          MESSAGE: "README updated"
