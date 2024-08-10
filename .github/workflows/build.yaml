@@ -11,23 +11,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
+
       - name: Get Python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
+
       - name: Configure pip cache
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/cache/requirements.txt') }}
           restore-keys: ${{ runner.os }}-pip-
+
       - name: Install dependencies
         run: python -m pip install -r cache/requirements.txt
-      - name: Update README file
-        run: python daily.py
+
+      - name: Update README file with retry
+        run: |
+          n=0
+          until [ "$n" -ge 5 ]; do
+            python daily.py && break
+            n=$((n+1))
+            echo "Retry #$n..."
+            sleep 10
+          done
+        shell: bash
+
       - name: Push changes
         run: |
           git config --global user.name "pyoneerC/GitHub-Actions-Bot"
