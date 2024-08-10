@@ -11,17 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.7
         with:
           fetch-depth: 1
 
       - name: Get Python 3.8
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.1.1
         with:
           python-version: '3.8'
 
       - name: Configure pip cache
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/cache/requirements.txt') }}
@@ -47,16 +47,5 @@ jobs:
           git config --global user.email "github-actions-bot@pyoneerc.github.io" 
           git add .
           git diff
-          git diff > diff.txt
           git commit -m "Update README" -a || echo "No changes to commit"
           git push
-
-      - name: Discord notification
-        uses: discord-actions/message@v2
-        with:
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          username: GitHub Actions
-          avatar: https://avatars.githubusercontent.com/u/44036562
-          message: |
-            :tada: **README updated!** :tada:
-            - **Diff**: [diff.txt](./diff.txt)
