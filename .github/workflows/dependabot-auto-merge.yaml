@@ -1,0 +1,40 @@
+name: Dependabot Auto Merge
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.7
+
+      - name: Set up Node.js (required for actions/github-script)
+        uses: actions/setup-node@v4.0.3
+        with:
+          node-version: '18'
+
+      - name: Merge Dependabot PRs
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            const { data: pullRequest } = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+
+            if (pullRequest.title.startsWith("Bump ") && pullRequest.head.ref.startsWith("dependabot/")) {
+              await github.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pullRequest.number,
+                merge_method: "squash",
+              });
+            }
