@@ -42,7 +42,7 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="30">max@comperatore (pyoneerC)</tspan>
 <tspan x="370" y="50">——————</tspan>
 <tspan x="370" y="70" class="keyColor">Description</tspan>: <tspan class="valueColor">Desarrollador Backend y de Videojuegos</tspan>
-<tspan x="660" y= "90" class="valueColor">(7000d)</tspan>
+<tspan x="660" y= "90" class="valueColor">(relativedelta(years=+19, months=+5, days=+7))</tspan>
 <tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">19 años, 5 meses, 7 días</tspan>
 <tspan x="370" y="110" class="keyColor">Host</tspan>: <tspan class="valueColor">Universidad de Mendoza</tspan><tspan class="commentColor"> #UM (Argentina)</tspan>
 <tspan x="370" y="130" class="keyColor">Kernel</tspan>: <tspan class="valueColor">Desarollo de Videojuegos</tspan><tspan class="commentColor"> #DVJ</tspan>
