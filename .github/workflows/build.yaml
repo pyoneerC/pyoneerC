@@ -47,6 +47,7 @@ jobs:
           git config --global user.email "github-actions-bot@pyoneerc.github.io" 
           git add .
           git diff
+          git diff > diff.txt
           git commit -m "Update README" -a || echo "No changes to commit"
           git push
 
@@ -55,7 +56,7 @@ jobs:
         with:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
           username: GitHub Actions
-          avatarUrl: https://avatars.githubusercontent.com/u/44036562
+          avatar: https://avatars.githubusercontent.com/u/44036562
           message: |
             :tada: **README updated!** :tada:
-            
+            - **Diff**: [diff.txt](./diff.txt)
