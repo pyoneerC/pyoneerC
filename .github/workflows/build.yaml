@@ -54,4 +54,6 @@ jobs:
         uses: techulus/push-github-action@1.2.1
         env:
           API_KEY: ${{ secrets.API_KEY }}
+          TITLE: Profile README
           MESSAGE: "README updated"
+          SOUND: scifi
