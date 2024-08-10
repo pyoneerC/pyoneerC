@@ -14,6 +14,8 @@ def update_uptime():
     months = difference.months
     days = difference.days
 
+    total_days = (current_date - start_date).days
+
     for file_path in file_paths:
         with open(file_path, 'r') as file:
             svg_content = file.readlines()
@@ -28,7 +30,7 @@ def update_uptime():
 
         for i, line in enumerate(svg_content):
             if '<tspan x="660" y= "90" class="valueColor">' in line:
-                svg_content[i] = f'<tspan x="660" y= "90" class="valueColor">({days}d)</tspan>\n'
+                svg_content[i] = f'<tspan x="660" y= "90" class="valueColor">({total_days}d)</tspan>\n'
                 break
 
         with open(file_path, 'w') as file:
