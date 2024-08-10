@@ -21,14 +21,14 @@ def update_uptime():
         months_message = f'mes' if months == 1 else 'meses'
         days_message = f'día' if days == 1 else 'días'
 
-    for i, line in enumerate(svg_content):
-        if '<tspan x="370" y="90" class="keyColor">Uptime</tspan>' in line:
-            svg_content[
-                i] = f'<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">{years} años, {months} {months_message} y {days} {days_message}</tspan>\n'
-            break
+        for i, line in enumerate(svg_content):
+            if '<tspan x="370" y="90" class="keyColor">Uptime</tspan>' in line:
+                svg_content[i] = f'<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">{years} años, {months} {months_message} y {days} {days_message}</tspan>\n'
+                break
 
-    with open(file_path, 'w') as file:
-        file.writelines(svg_content)
+        with open(file_path, 'w') as file:
+            file.writelines(svg_content)
+
 
 
 def get_github_stats():
