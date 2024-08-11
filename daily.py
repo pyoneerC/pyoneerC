@@ -38,7 +38,7 @@ def update_uptime():
 
 
 
-def get_github_stats():
+def update_github_stats():
     url = 'https://api.github.com/users/pyoneerc'
     file_paths = ['dark_mode.svg', 'light_mode.svg']
     response = requests.get(url)
@@ -107,7 +107,7 @@ def get_github_stats():
 
 def main():
     update_uptime()
-    get_github_stats()
+    update_github_stats()
 
 
 if __name__ == '__main__':
