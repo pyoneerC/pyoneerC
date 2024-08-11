@@ -52,3 +52,4 @@ jobs:
         uses: c-hive/gha-remove-artifacts@v1.4.0
         with:
           artifacts: "cache"
+          age: '7 days'
