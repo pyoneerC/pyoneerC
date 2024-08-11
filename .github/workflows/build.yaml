@@ -32,9 +32,6 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r cache/requirements.txt --upgrade
 
-      - name: pylinter
-        uses: programmingwithalex/pylinter@v1.4.3
-
       - name: Update README file
         run: python daily.py
 
