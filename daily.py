@@ -68,6 +68,9 @@ def update_github_stats():
     prs_merged_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs_merged"]')
     prs_merged_percentage_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs_merged_percentage"]')
 
+    prs_merged_percentage = prs_merged_percentage_element.text[0:2]
+    prs_merged_percentage += '%'
+
     for file_path in file_paths:
         with open(file_path, 'r') as file:
             svg_content = file.readlines()
@@ -105,7 +108,7 @@ def update_github_stats():
         for i, line in enumerate(svg_content):
             if '<tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>: <tspan class="valueColor">{prs_merged_element.text} ({prs_merged_percentage_element.text})</tspan>\n'
+                    i] = f'<tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>: <tspan class="valueColor">{prs_merged_element.text} ({prs_merged_percentage})</tspan>\n'
                 break
 
         with open(file_path, 'w') as file:
