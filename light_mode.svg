@@ -66,6 +66,6 @@ text, tspan {white-space: pre;}
 <tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">6</tspan>
 }</tspan>
 <tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">1.2k</tspan>
-<tspan x="660" y="490" class="keyColor">|   PRs</tspan>: <tspan class="valueColor">17</tspan>
+<tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>: <tspan class="valueColor">17</tspan>
 </text>
 </svg>

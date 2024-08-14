@@ -61,6 +61,13 @@ def update_github_stats():
     contributed_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="contribs"]')
     prs_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs"]')
 
+    url = 'https://github-readme-stats.vercel.app/api?username=pyoneerc&show=prs_merged,prs_merged_percentage'
+    response = requests.get(url)
+    svg_content = ElementTree.fromstring(response.content)
+
+    prs_merged_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs_merged"]')
+    prs_merged_percentage_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs_merged_percentage"]')
+
     for file_path in file_paths:
         with open(file_path, 'r') as file:
             svg_content = file.readlines()
@@ -96,9 +103,9 @@ def update_github_stats():
                 break
 
         for i, line in enumerate(svg_content):
-            if '<tspan x="660" y="490" class="keyColor">|   PRs</tspan>' in line:
+            if '<tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>' in line:
                 svg_content[
-                    i] = f'<tspan x="660" y="490" class="keyColor">|   PRs</tspan>: <tspan class="valueColor">{prs_element.text}</tspan>\n'
+                    i] = f'<tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>: <tspan class="valueColor">{prs_merged_element.text} ({prs_merged_percentage_element.text})</tspan>\n'
                 break
 
         with open(file_path, 'w') as file:
