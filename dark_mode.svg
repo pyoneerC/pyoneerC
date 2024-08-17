@@ -11,13 +11,13 @@ text, tspan {white-space: pre;}
 <rect width="970px" height="530px" fill="#161b22" rx="15"/>
 
 <text x="15" y="30" fill="#c9d1d9" class="ascii">
-<tspan x="15" y="30">           g@M%@%%@^%Nw,,                   </tspan>
-<tspan x="15" y="50">        ,M*|`||*%gNM=]mM%g||%N,             </tspan>
+<tspan x="15" y="30">           g@M%@%%@^%Nw,,                  </tspan>
+<tspan x="15" y="50">        ,M*|`||*%gNM=]mM%g||%N,            </tspan>
 <tspan x="15" y="70">       p!``  '! |''` '''|||%lo%w           </tspan>
-<tspan x="15" y="90">     ,@L `    ,,        ''!`|j%M]%          </tspan>
+<tspan x="15" y="90">     ,@L `    ,,        ''!`|j%M]%         </tspan>
 <tspan x="15" y="110">    ]j'` .,wp@pw,    `.     ''''|%        </tspan>
 <tspan x="15" y="130">    ||]@#@almrscb#'.            ||        </tspan>
-<tspan x="15" y="150">   ']sql@@@sn@@@@@@p     , ,'''``4       </tspan>
+<tspan x="15" y="150">   ']sql@@@sn@@@@@@p     , ,'''``4        </tspan>
 <tspan x="15" y="170">   rust:]%%@@@@@%%%vj%k%h''*||ue5'        </tspan>
 <tspan x="15" y="190">   j %M`      |jkk^   ~nrn=|i@@@;`        </tspan>
 <tspan x="15" y="210">   !mc'*^`             `&quot;!  L'':!    </tspan>
@@ -32,10 +32,10 @@ text, tspan {white-space: pre;}
 <tspan x="15" y="390">         |jm%F@@@b%%kkmk%i|!,[            </tspan>
 <tspan x="15" y="410">         @p|#cc%%mgr|||j*'`;j[            </tspan>
 <tspan x="15" y="430">        ]@@@g|^''`'''  ` ,pca%            </tspan>
-<tspan x="15" y="450">        @@**@mgmp;,,,,:;unity%^            </tspan>
+<tspan x="15" y="450">        @@**@mgmp;,,,,:;unity%^           </tspan>
 <tspan x="15" y="470">       @@@redis@@%%kgki!|sn#j%k%@         </tspan>
-<tspan x="15" y="490">   *%@@@^ch%b%k{%alm%rr3%%%% ;\%%       </tspan>
-<tspan x="15" y="510">  #%kb%@see%$#'.%H@rdr2////%k~%&quot;gh# </tspan>
+<tspan x="15" y="490">   *%@@@^ch%b%k{%alm%rr3%%%% ;\%%         </tspan>
+<tspan x="15" y="510">  #%kb%@see%$#'.%H@rdr2////%k~%&quot;gh#  </tspan>
 </text>
 
 <text x="370" y="30" fill="#c9d1d9">
