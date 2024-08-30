@@ -42,8 +42,8 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="30">max@comperatore (pyoneerC)</tspan>
 <tspan x="370" y="50">——————</tspan>
 <tspan x="370" y="70" class="keyColor">Description</tspan>: <tspan class="valueColor">Desarrollador Backend y de Videojuegos</tspan>
-<tspan x="680" y= "90" class="valueColor">(7118d)</tspan>
-<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">19 años, 5 meses, 25 días</tspan>
+<tspan x="680" y= "90" class="valueColor">(7120d)</tspan>
+<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">19 años, 5 meses, 27 días</tspan>
 <tspan x="370" y="110" class="keyColor">Host</tspan>: <tspan class="valueColor">Universidad de Mendoza</tspan><tspan class="commentColor"> #UM (Argentina)</tspan>
 <tspan x="370" y="130" class="keyColor">Kernel</tspan>: <tspan class="valueColor">Desarollo de Videojuegos</tspan><tspan class="commentColor"> #DVJ</tspan>
 <tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C#, C++</tspan>
@@ -60,7 +60,7 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="450" class="keyColor">GitHub Stats</tspan>:
 <tspan x="370" y="470">——————</tspan>
 <tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">23</tspan>
-<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">13</tspan>
+<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">16</tspan>
 <tspan x="520" y="510" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">9</tspan>
 <tspan x="465" y="490">{
 <tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">8</tspan>
