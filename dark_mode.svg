@@ -43,6 +43,7 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="50">——————</tspan>
 <tspan x="370" y="70" class="keyColor">Description</tspan>: <tspan class="valueColor">Desarrollador Backend y de Videojuegos</tspan>
 <tspan x="760" y= "90" class="valueColor">(26.6%)</tspan>
+<tspan x="840" y= "90" class="valueColor">(19y)</tspan>
 <tspan x="680" y= "90" class="valueColor">(7124d)</tspan>
 <tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">19 años, 6 meses, 0 días</tspan>
 <tspan x="370" y="110" class="keyColor">Host</tspan>: <tspan class="valueColor">Universidad de Mendoza</tspan><tspan class="commentColor"> #UM (Argentina)</tspan>

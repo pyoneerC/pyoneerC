@@ -18,6 +18,8 @@ def update_uptime():
 
     life_expectancy_days = 26783
     life_percentage = round((total_days / life_expectancy_days) * 100, 2)
+    years_rounded = round(total_days / 365, 2)
+
 
     for file_path in file_paths:
         with open(file_path, 'r') as file:
@@ -39,6 +41,11 @@ def update_uptime():
         for i, line in enumerate(svg_content):
             if '<tspan x="760" y= "90" class="valueColor">' in line:
                 svg_content[i] = f'<tspan x="760" y= "90" class="valueColor">({life_percentage}%)</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="840" y= "90" class="valueColor">(19.32y)</tspan>' in line:
+                svg_content[i] = f'<tspan x="840" y= "90" class="valueColor">({years_rounded}y)</tspan>\n'
                 break
 
         with open(file_path, 'w') as file:
