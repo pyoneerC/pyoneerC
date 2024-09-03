@@ -1,8 +1,5 @@
 name: DAILY README Update
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: "0 3 * * *"
 jobs:
