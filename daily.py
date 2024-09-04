@@ -44,7 +44,7 @@ def update_uptime():
                 break
 
         for i, line in enumerate(svg_content):
-            if '<tspan x="840" y= "90" class="valueColor">(19.32y)</tspan>' in line:
+            if '<tspan x="840" y= "90" class="valueColor">' in line:
                 svg_content[i] = f'<tspan x="840" y= "90" class="valueColor">({years_rounded}y)</tspan>\n'
                 break
 
