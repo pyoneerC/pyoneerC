@@ -25,12 +25,12 @@ def update_uptime():
         with open(file_path, 'r') as file:
             svg_content = file.readlines()
 
-        months_message = f'mes' if months == 1 else 'meses'
-        days_message = f'día' if days == 1 else 'días'
+        months_message = f'month' if months == 1 else 'months'
+        days_message = f'day' if days == 1 else 'days'
 
         for i, line in enumerate(svg_content):
             if '<tspan x="370" y="90" class="keyColor">Uptime</tspan>' in line:
-                svg_content[i] = f'<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">{years} años, {months} {months_message}, {days} {days_message}</tspan>\n'
+                svg_content[i] = f'<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">{years} years, {months} {months_message}, {days} {days_message}</tspan>\n'
                 break
 
         for i, line in enumerate(svg_content):
