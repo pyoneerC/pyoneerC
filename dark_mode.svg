@@ -50,7 +50,7 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="130" class="keyColor">Kernel</tspan>: <tspan class="valueColor">Game Development</tspan><tspan class="commentColor"> #DVJ</tspan>
 <tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C#, C++</tspan>
 <tspan x="370" y="220" class="keyColor">Tools</tspan>.<tspan class="keyColor">Frontend</tspan>: <tspan class="valueColor">React, HTML, CSS, JS, TS</tspan>
-<tspan x="370" y="240" class="keyColor">Tools</tspan>.<tspan class="keyColor">Backend</tspan>: <tspan class="valueColor">FastAPI, Node.js, Supabase, Docker, Azure</tspan>
+<tspan x="370" y="240" class="keyColor">Tools</tspan>.<tspan class="keyColor">Backend</tspan>: <tspan class="valueColor">FastAPI, Node.js, Supabase (SQL), Docker, Azure</tspan>
 <tspan x="370" y="180" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">Spanish, English (C1 – Fluent)</tspan>
 <tspan x="370" y="300" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Software</tspan>: <tspan class="valueColor">SAAS Development, OSS Contributions, ML</tspan>
 <tspan x="370" y="280" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Hardware</tspan>: <tspan class="valueColor">Hiking, Cycling, Kayaking, EDM</tspan>
