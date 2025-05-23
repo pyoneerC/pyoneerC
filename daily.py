@@ -1,254 +1,136 @@
-"""
-Updates dynamic data within SVG files (dark_mode.svg, light_mode.svg)
-for display on a GitHub profile.
-
-This script fetches real-time data such as personal uptime (age) and
-GitHub statistics (repositories, stars, followers, commits, contributions, PRs)
-and updates the corresponding text elements in the SVG files.
-"""
-import logging
 from datetime import date
 from dateutil.relativedelta import relativedelta
 import requests
 from xml.etree import ElementTree
-from typing import Dict, List, Optional, Any # Added Any for flexible JSON dicts
 
-# Configure basic logging
-logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# --- Global Constants ---
-SVG_NAMESPACE: Dict[str, str] = {'svg': 'http://www.w3.org/2000/svg'}
-FILE_PATHS: List[str] = ['dark_mode.svg', 'light_mode.svg']
-ElementTree.register_namespace('', SVG_NAMESPACE['svg']) # Register namespace globally
+def update_uptime():
+    file_paths = ['dark_mode.svg', 'light_mode.svg']
+    start_date = date(2005, 3, 3)
+    current_date = date.today()
 
-# --- Helper Function for SVG Manipulation ---
-def update_svg_elements(file_path: str, updates: Dict[str, str]) -> bool:
-    """Updates text content of specified elements in an SVG file.
+    difference = relativedelta(current_date, start_date)
+    years = difference.years
+    months = difference.months
+    days = difference.days
 
-    Uses ElementTree to parse an SVG file, find elements by their 'id'
-    attribute, and update their text content with provided values.
+    total_days = (current_date - start_date).days
 
-    Args:
-        file_path: The path to the SVG file to be updated.
-        updates: A dictionary where keys are the 'id' attributes of the
-                 SVG elements to update, and values are the new text
-                 content for those elements.
+    life_expectancy_days = 26783
+    life_percentage = round((total_days / life_expectancy_days) * 100, 2)
+    years_rounded = round(total_days / 365, 2)
 
-    Returns:
-        True if all specified elements were found and the SVG file was
-        successfully parsed and written. False if any element was not
-        found, or if a file I/O or XML parsing error occurred.
-    """
-    try:
-        tree: ElementTree.ElementTree = ElementTree.parse(file_path)
-        root: ElementTree.Element = tree.getroot()
-        all_elements_found: bool = True
 
-        for element_id, new_value in updates.items():
-            # XPath to find any element with the given id
-            element: Optional[ElementTree.Element] = root.find(f".//*[@id='{element_id}']", SVG_NAMESPACE)
-            if element is not None:
-                element.text = str(new_value)
-            else:
-                logging.error(f"Element with ID '{element_id}' not found in {file_path}")
-                all_elements_found = False
-        
-        tree.write(file_path, encoding='utf-8', xml_declaration=True)
-        # Returns true only if all elements were found and file written successfully
-        return all_elements_found
-    except (IOError, FileNotFoundError) as e:
-        logging.error(f"File operation error for {file_path}: {e}")
-        return False
-    except ElementTree.ParseError as e:
-        logging.error(f"XML parsing error for {file_path}: {e}")
-        return False
-    except Exception as e: # General catch for other unexpected errors
-        logging.error(f"An unexpected error occurred while processing {file_path} in update_svg_elements: {e}")
-        return False
+    for file_path in file_paths:
+        with open(file_path, 'r') as file:
+            svg_content = file.readlines()
 
-# --- Data Fetching/Calculation Functions ---
-def get_uptime_data() -> Dict[str, str]:
-    """Calculates personal uptime (age) statistics.
+        months_message = f'month' if months == 1 else 'months'
+        days_message = f'day' if days == 1 else 'days'
 
-    Computes the time elapsed since a fixed start date (birth date) to the
-    current date. This includes years, months, days, total days lived,
-    a conceptual percentage of life lived based on an assumed expectancy,
-    and total years lived rounded to two decimal places.
+        for i, line in enumerate(svg_content):
+            if '<tspan x="370" y="90" class="keyColor">Uptime</tspan>' in line:
+                svg_content[i] = f'<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">{years} years, {months} {months_message}, {days} {days_message}</tspan>\n'
+                break
 
-    Returns:
-        A dictionary where keys are SVG element IDs and values are the
-        formatted uptime strings:
-        - "uptime-value": Years, months, days lived.
-        - "total-days-value": Total days lived.
-        - "life-percentage-value": Percentage of assumed life expectancy lived.
-        - "years-rounded-value": Total years lived, rounded.
-    """
-    start_date: date = date(2005, 3, 3)  # My birth date
-    current_date: date = date.today()
+        for i, line in enumerate(svg_content):
+            if '<tspan x="680" y= "90" class="valueColor">' in line:
+                svg_content[i] = f'<tspan x="680" y= "90" class="valueColor">({total_days}d)</tspan>\n'
+                break
 
-    time_difference: relativedelta = relativedelta(current_date, start_date)
-    years: int = time_difference.years
-    months: int = time_difference.months
-    days: int = time_difference.days
-    
-    total_days_lived: int = (current_date - start_date).days
-    
-    # Conceptual value for the profile SVG (e.g., around 73 years = 26783 days)
-    assumed_life_expectancy_days: int = 26783 
-    life_percentage_lived: float = round((total_days_lived / assumed_life_expectancy_days) * 100, 2)
-    total_years_lived_rounded: float = round(total_days_lived / 365, 2)
-    
-    months_message: str = 'month' if months == 1 else 'months'
-    days_message: str = 'day' if days == 1 else 'days'
+        for i, line in enumerate(svg_content):
+            if '<tspan x="760" y= "90" class="valueColor">' in line:
+                svg_content[i] = f'<tspan x="760" y= "90" class="valueColor">({life_percentage}%)</tspan>\n'
+                break
 
-    uptime_values_dict: Dict[str, str] = {
-        "uptime-value": f"{years} years, {months} {months_message}, {days} {days_message}",
-        "total-days-value": f"({total_days_lived}d)",
-        "life-percentage-value": f"({life_percentage_lived}%)",
-        "years-rounded-value": f"({total_years_lived_rounded}y)"
-    }
-    return uptime_values_dict
+        for i, line in enumerate(svg_content):
+            if '<tspan x="840" y= "90" class="valueColor">' in line:
+                svg_content[i] = f'<tspan x="840" y= "90" class="valueColor">({years_rounded}y)</tspan>\n'
+                break
 
-def get_github_stats_data(username: str) -> Dict[str, str]:
-    """Fetches GitHub statistics for a given username.
+        with open(file_path, 'w') as file:
+            file.writelines(svg_content)
 
-    Retrieves data from the GitHub API (public repos, followers, stars) and
-    from the github-readme-stats.vercel.app API (commits, contributions, PRs).
-    Handles potential errors during API requests and data parsing.
 
-    Args:
-        username: The GitHub username for which to fetch stats.
 
-    Returns:
-        A dictionary where keys are SVG element IDs and values are the
-        fetched GitHub statistics as strings. Defaults to "N/A" for
-        any statistic that cannot be retrieved or processed.
-    """
-    # Initialize stats with default "N/A" values
-    public_repos: Any = "N/A" # Can be int or str "N/A"
-    followers: Any = "N/A"  # Can be int or str "N/A"
-    stars: Any = "N/A"      # Can be int or str "N/A"
-    commits_text: str = "N/A"
-    contributed_text: str = "N/A"
-    prs_merged_text: str = "N/A"
-    prs_merged_percentage_text: str = "N/A"
-    
-    # --- Fetch data from GitHub API ---
-    user_api_url: str = f'https://api.github.com/users/{username}'
-    try:
-        response: requests.Response = requests.get(user_api_url)
-        response.raise_for_status() # Check for HTTP errors
-        user_data: Dict[str, Any] = response.json()
-        public_repos = user_data.get('public_repos', "N/A")
-        followers = user_data.get('followers', "N/A")
-        
-        repos_url: Optional[str] = user_data.get('repos_url')
-        if repos_url:
-            repos_response: requests.Response = requests.get(repos_url)
-            repos_response.raise_for_status()
-            repos_data: List[Dict[str, Any]] = repos_response.json()
-            stars = sum(repo.get('stargazers_count', 0) for repo in repos_data)
-        else:
-            logging.error(f"Repos URL not found for user {username}")
-            stars = "N/A"
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Error fetching GitHub user/repos data for {username}: {e}")
-    except ValueError as e: # JSONDecodeError inherits from ValueError
-        logging.error(f"Error decoding JSON for GitHub user/repos data for {username}: {e}")
+def update_github_stats():
+    url = 'https://api.github.com/users/pyoneerc'
+    file_paths = ['dark_mode.svg', 'light_mode.svg']
+    response = requests.get(url)
+    data = response.json()
 
-    # --- Fetch commit and contribution stats from Vercel API ---
-    stats_api_url_commits: str = f'https://github-readme-stats.vercel.app/api?username={username}&include_all_commits=true'
-    try:
-        response_commits: requests.Response = requests.get(stats_api_url_commits)
-        response_commits.raise_for_status()
-        # Response is an SVG (XML format)
-        svg_content_commits: ElementTree.Element = ElementTree.fromstring(response_commits.content)
-        commits_xml_element: Optional[ElementTree.Element] = svg_content_commits.find('.//svg:text[@data-testid="commits"]', SVG_NAMESPACE)
-        contributed_xml_element: Optional[ElementTree.Element] = svg_content_commits.find('.//svg:text[@data-testid="contribs"]', SVG_NAMESPACE)
-        if commits_xml_element is not None and commits_xml_element.text is not None:
-            commits_text = commits_xml_element.text
-        if contributed_xml_element is not None and contributed_xml_element.text is not None:
-            contributed_text = contributed_xml_element.text
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Error fetching commit/contribution stats for {username} from Vercel API: {e}")
-    except ElementTree.ParseError as e:
-        logging.error(f"Error parsing XML for commit/contribution stats for {username}: {e}")
-    except ValueError as e: # If Vercel API returns JSON by mistake
-        logging.error(f"Error decoding potential JSON for commit/contribution stats for {username}: {e}")
+    public_repos = data['public_repos']
+    followers = data['followers']
 
-    # --- Fetch PR stats from Vercel API ---
-    stats_api_url_prs: str = f'https://github-readme-stats.vercel.app/api?username={username}&show=prs_merged,prs_merged_percentage'
-    try:
-        response_prs: requests.Response = requests.get(stats_api_url_prs)
-        response_prs.raise_for_status()
-        svg_content_prs: ElementTree.Element = ElementTree.fromstring(response_prs.content)
-        prs_merged_xml_element: Optional[ElementTree.Element] = svg_content_prs.find('.//svg:text[@data-testid="prs_merged"]', SVG_NAMESPACE)
-        prs_merged_percentage_xml_element: Optional[ElementTree.Element] = svg_content_prs.find('.//svg:text[@data-testid="prs_merged_percentage"]', SVG_NAMESPACE)
-        
-        if prs_merged_xml_element is not None and prs_merged_xml_element.text is not None:
-            prs_merged_text = prs_merged_xml_element.text
-        if prs_merged_percentage_xml_element is not None and prs_merged_percentage_xml_element.text is not None:
-            raw_percentage_text: str = prs_merged_percentage_xml_element.text
-            if raw_percentage_text and raw_percentage_text != "N/A": # Check if not empty or "N/A"
-                prs_merged_percentage_text = "".join(filter(str.isdigit, raw_percentage_text)) + "%"
-            else:
-                prs_merged_percentage_text = "N/A" # Default if raw is "N/A" or empty
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Error fetching PR stats for {username} from Vercel API: {e}")
-    except ElementTree.ParseError as e:
-        logging.error(f"Error parsing XML for PR stats for {username}: {e}")
-    except ValueError as e: # If Vercel API returns JSON by mistake
-        logging.error(f"Error decoding potential JSON for PR stats for {username}: {e}")
+    repos_url = data['repos_url']
+    repos_response = requests.get(repos_url)
+    repos_data = repos_response.json()
 
-    # Prepare final dictionary for SVG update
-    github_stats_updates: Dict[str, str] = {
-        "repos-value": str(public_repos), # Ensure string conversion
-        "stars-value": str(stars),         # Ensure string conversion
-        "followers-value": str(followers), # Ensure string conversion
-        "contributed-value": contributed_text,
-        "commits-value": commits_text,
-    }
-    if prs_merged_text != "N/A" and prs_merged_percentage_text != "N/A":
-        github_stats_updates["merged-prs-value"] = f'{prs_merged_text} ({prs_merged_percentage_text})'
-    else:
-        github_stats_updates["merged-prs-value"] = "N/A"
-    
-    return github_stats_updates
+    stars = sum(repo['stargazers_count'] for repo in repos_data)
 
-# --- Main SVG Updating Functions ---
-def update_uptime() -> None:
-    """Orchestrates fetching uptime data and updating SVG files.
+    url = 'https://github-readme-stats.vercel.app/api?username=pyoneerc&include_all_commits=true'
+    response = requests.get(url)
+    svg_content = ElementTree.fromstring(response.content)
 
-    Calls `get_uptime_data()` to retrieve calculated uptime statistics,
-    then iterates through predefined SVG file paths and calls
-    `update_svg_elements()` to apply these updates to each file.
-    Logs an error if SVG update fails for any file.
-    """
-    uptime_data: Dict[str, str] = get_uptime_data()
-    for file_path in FILE_PATHS:
-        if not update_svg_elements(file_path, uptime_data):
-            logging.error(f"Failed to update uptime elements in {file_path}.")
+    commits_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="commits"]')
+    contributed_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="contribs"]')
+    prs_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs"]')
 
-def update_github_stats() -> None:
-    """Orchestrates fetching GitHub stats and updating SVG files.
+    url = 'https://github-readme-stats.vercel.app/api?username=pyoneerc&show=prs_merged,prs_merged_percentage'
+    response = requests.get(url)
+    svg_content = ElementTree.fromstring(response.content)
 
-    Calls `get_github_stats_data()` for a predefined GitHub username
-    to retrieve various GitHub statistics. Then, it iterates through
-    predefined SVG file paths and calls `update_svg_elements()`
-    to apply these updates to each file. Logs an error if SVG
-    update fails for any file.
-    """
-    github_user: str = "pyoneerc" 
-    github_stats_data: Dict[str, str] = get_github_stats_data(github_user)
-    for file_path in FILE_PATHS:
-        if not update_svg_elements(file_path, github_stats_data):
-            logging.error(f"Failed to update GitHub stats elements for {github_user} in {file_path}.")
+    prs_merged_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs_merged"]')
+    prs_merged_percentage_element = svg_content.find('.//{http://www.w3.org/2000/svg}text[@data-testid="prs_merged_percentage"]')
 
-def main() -> None:
-    """Main function to orchestrate all updates.
-    
-    Calls functions to update both uptime and GitHub statistics in the SVG files.
-    """
+    prs_merged_percentage = prs_merged_percentage_element.text[0:2]
+    prs_merged_percentage += '%'
+
+    for file_path in file_paths:
+        with open(file_path, 'r') as file:
+            svg_content = file.readlines()
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="370" y="490" class="keyColor">Repos</tspan>' in line:
+                svg_content[
+                    i] = f'<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">{public_repos}</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="520" y="510" class="keyColor">|   Stars</tspan>' in line:
+                svg_content[
+                    i] = f'<tspan x="520" y="510" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">{stars}</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="370" y="510" class="keyColor">Followers</tspan>' in line:
+                svg_content[
+                    i] = f'<tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">{followers}</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="480" y="490" class="keyColor">Contributed</tspan>' in line:
+                svg_content[
+                    i] = f'<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">{contributed_element.text}</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="660" y="510" class="keyColor">|   Commits</tspan>' in line:
+                svg_content[
+                    i] = f'<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">{commits_element.text}</tspan>\n'
+                break
+
+        for i, line in enumerate(svg_content):
+            if '<tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>' in line:
+                svg_content[
+                    i] = f'<tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>: <tspan class="valueColor">{prs_merged_element.text} ({prs_merged_percentage})</tspan>\n'
+                break
+
+        with open(file_path, 'w') as file:
+            file.writelines(svg_content)
+
+
+def main():
     update_uptime()
     update_github_stats()
 
