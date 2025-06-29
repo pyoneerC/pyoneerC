@@ -42,10 +42,10 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="30">max@comperatore (pyoneerC)</tspan>
 <tspan x="370" y="50">——————</tspan>
 <tspan x="370" y="70" class="keyColor">Description</tspan>: <tspan class="valueColor">Software Developer</tspan>
-<tspan x="760" y= "90" class="valueColor">(27.71%)</tspan>
-<tspan x="840" y= "90" class="valueColor">(20.33y)</tspan>
-<tspan x="680" y= "90" class="valueColor">(7422d)</tspan>
-<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">20 years, 3 months, 25 days</tspan>
+<tspan x="760" y= "90" class="valueColor">(27.72%)</tspan>
+<tspan x="840" y= "90" class="valueColor">(20.34y)</tspan>
+<tspan x="680" y= "90" class="valueColor">(7423d)</tspan>
+<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">20 years, 3 months, 26 days</tspan>
 <tspan x="370" y="110" class="keyColor">Host</tspan>: <tspan class="valueColor">University of Mendoza</tspan><tspan class="commentColor"> #UM (Argentina)</tspan>
 <tspan x="370" y="130" class="keyColor">Kernel</tspan>: <tspan class="valueColor">Game Development</tspan><tspan class="commentColor"> #DVJ</tspan>
 <tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C#, C++</tspan>
@@ -61,9 +61,9 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="410" class="keyColor">Email</tspan>: <tspan class="valueColor">me@maxcomperatore.com</tspan>
 <tspan x="370" y="450" class="keyColor">GitHub Stats</tspan>:
 <tspan x="370" y="470">——————</tspan>
-<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">43</tspan>
+<tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">44</tspan>
 <tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">86</tspan>
-<tspan x="520" y="510" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">109</tspan>
+<tspan x="520" y="510" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">110</tspan>
 <tspan x="465" y="490">{
 <tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">20</tspan>
 }</tspan>
