@@ -44,8 +44,8 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="70" class="keyColor">Description</tspan>: <tspan class="valueColor">AI Software Developer</tspan>
 <tspan x="760" y= "90" class="valueColor">(27.98%)</tspan>
 <tspan x="840" y= "90" class="valueColor">(20.53y)</tspan>
-<tspan x="680" y= "90" class="valueColor">(7493d)</tspan>
-<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">20 years, 6 months, 4 days</tspan>
+<tspan x="680" y= "90" class="valueColor">(7494d)</tspan>
+<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">20 years, 6 months, 5 days</tspan>
 <tspan x="370" y="110" class="keyColor">Host</tspan>: <tspan class="valueColor">University of Mendoza</tspan><tspan class="commentColor"> #UM (Argentina)</tspan>
 <tspan x="370" y="130" class="keyColor">Kernel</tspan>: <tspan class="valueColor">Game Development</tspan><tspan class="commentColor"> #DVJ</tspan>
 <tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C#, C++</tspan>
@@ -67,7 +67,7 @@ text, tspan {white-space: pre;}
 <tspan x="465" y="490">{
 <tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">20</tspan>
 }</tspan>
-<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">3.4k</tspan>
+<tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">3.3k</tspan>
 <tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>: <tspan class="valueColor">46 (55%)</tspan>
 </text>
 </svg>
