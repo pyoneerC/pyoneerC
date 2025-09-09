@@ -39,26 +39,25 @@ text, tspan {white-space: pre;}
 </text>
 
 <text x="370" y="30" fill="#c9d1d9">
-<tspan x="370" y="30">max@comperatore (pyoneerC)</tspan>
+<tspan x="370" y="30">max comperatore (pyoneerC)</tspan>
 <tspan x="370" y="50">——————</tspan>
 <tspan x="370" y="70" class="keyColor">Description</tspan>: <tspan class="valueColor">AI Software Developer</tspan>
 <tspan x="760" y= "90" class="valueColor">(27.98%)</tspan>
 <tspan x="840" y= "90" class="valueColor">(20.53y)</tspan>
 <tspan x="680" y= "90" class="valueColor">(7495d)</tspan>
 <tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">20 years, 6 months, 6 days</tspan>
-<tspan x="370" y="110" class="keyColor">Host</tspan>: <tspan class="valueColor">University of Mendoza</tspan><tspan class="commentColor"> #UM (Argentina)</tspan>
-<tspan x="370" y="130" class="keyColor">Kernel</tspan>: <tspan class="valueColor">Game Development</tspan><tspan class="commentColor"> #DVJ</tspan>
-<tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C#, C++</tspan>
-<tspan x="370" y="220" class="keyColor">Tools</tspan>.<tspan class="keyColor">Frontend</tspan>: <tspan class="valueColor">React, HTML, CSS, JS, TS</tspan>
-<tspan x="370" y="240" class="keyColor">Tools</tspan>.<tspan class="keyColor">Backend</tspan>: <tspan class="valueColor">FastAPI, Node.js, Supabase (SQL), Docker, Azure</tspan>
-<tspan x="370" y="180" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">Spanish, English (C1 – Fluent)</tspan>
-<tspan x="370" y="300" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Software</tspan>: <tspan class="valueColor">SAAS Development, OSS Contributions, ML</tspan>
-<tspan x="370" y="280" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Hardware</tspan>: <tspan class="valueColor">Hiking, Cycling, Kayaking, EDM</tspan>
-<tspan x="370" y="330" class="keyColor">Contact</tspan>:
-<tspan x="370" y="350">——————</tspan>
-<tspan x="370" y="370" class="keyColor">Web</tspan>: <tspan class="valueColor">maxcomperatore.com</tspan>
-<tspan x="370" y="390" class="keyColor">LinkedIn</tspan>: <tspan class="valueColor">in/maxcomperatore</tspan>
-<tspan x="370" y="410" class="keyColor">Email</tspan>: <tspan class="valueColor">me@maxcomperatore.com</tspan>
+<tspan x="370" y="110" class="keyColor">Experience</tspan>: <tspan class="valueColor">3+ years</tspan>
+<tspan x="370" y="140" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, Rust</tspan>
+<tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">Spanish, English (Fluent)</tspan>
+<tspan x="370" y="190" class="keyColor">Tools</tspan>.<tspan class="keyColor">AI</tspan>: <tspan class="valueColor">LangChain, CrewAI, Kiln, Unsloth, Hugging Face, vLLM</tspan>
+<tspan x="370" y="210" class="keyColor">Tools</tspan>.<tspan class="keyColor">Backend</tspan>: <tspan class="valueColor">FastAPI, Docker, Node.js, PostgreSQL, Redis, Azure</tspan>
+<tspan x="370" y="240" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Hardware</tspan>: <tspan class="valueColor">Hiking, Cycling, Kayaking, EDM, Calisthenics</tspan>
+<tspan x="370" y="260" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Software</tspan>: <tspan class="valueColor">SAAS Development, OSS Contributions</tspan>
+<tspan x="370" y="310" class="keyColor">Contact</tspan>:
+<tspan x="370" y="330">——————</tspan>
+<tspan x="370" y="350" class="keyColor">Web</tspan>: <tspan class="valueColor">maxcomperatore.com</tspan>
+<tspan x="370" y="370" class="keyColor">LinkedIn</tspan>: <tspan class="valueColor">in/maxcomperatore</tspan>
+<tspan x="370" y="390" class="keyColor">Email</tspan>: <tspan class="valueColor">me@maxcomperatore.com</tspan>
 <tspan x="370" y="450" class="keyColor">GitHub Stats</tspan>:
 <tspan x="370" y="470">——————</tspan>
 <tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">48</tspan>
