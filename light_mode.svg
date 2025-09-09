@@ -49,7 +49,7 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="140" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, Rust, HTML</tspan>
 <tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">Spanish, English (Fluent)</tspan>
 <tspan x="370" y="190" class="keyColor">Tools</tspan>.<tspan class="keyColor">AI</tspan>: <tspan class="valueColor">LangChain, CrewAI, Kiln, Unsloth, Hugging Face, vLLM</tspan>
-<tspan x="370" y="210" class="keyColor">Tools</tspan>.<tspan class="keyColor">Backend</tspan>: <tspan class="valueColor">FastAPI, Docker, Node.js, PostgreSQL, Redis, Azure</tspan>
+<tspan x="370" y="210" class="keyColor">Tools</tspan>.<tspan class="keyColor">Backend</tspan>: <tspan class="valueColor">FastAPI, Docker, Actions, PostgreSQL, Redis, Azure</tspan>
 <tspan x="370" y="240" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Hardware</tspan>: <tspan class="valueColor">Hiking, Cycling, Kayaking, EDM, Calisthenics</tspan>
 <tspan x="370" y="260" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Software</tspan>: <tspan class="valueColor">SAAS Development, OSS Contributions</tspan>
 <tspan x="370" y="310" class="keyColor">Contact</tspan>:
