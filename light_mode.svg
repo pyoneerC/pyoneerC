@@ -46,7 +46,7 @@ text, tspan {white-space: pre;}
 <tspan x="680" y= "90" class="valueColor">(7495d)</tspan>
 <tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">20 years, 6 months, 6 days</tspan>
 <tspan x="370" y="110" class="keyColor">Experience</tspan>: <tspan class="valueColor">3+ years</tspan>
-<tspan x="370" y="140" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, Rust</tspan>
+<tspan x="370" y="140" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, Rust, English (Vibe Coding)</tspan>
 <tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">Spanish, English (Fluent)</tspan>
 <tspan x="370" y="190" class="keyColor">Tools</tspan>.<tspan class="keyColor">AI</tspan>: <tspan class="valueColor">LangChain, CrewAI, Kiln, Unsloth, Hugging Face, vLLM</tspan>
 <tspan x="370" y="210" class="keyColor">Tools</tspan>.<tspan class="keyColor">Backend</tspan>: <tspan class="valueColor">FastAPI, Docker, Node.js, PostgreSQL, Redis, Azure</tspan>
