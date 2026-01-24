@@ -42,9 +42,9 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="30">maxcomperatore (pyoneerC)</tspan>
 <tspan x="370" y="50">——————</tspan>
 <tspan x="370" y="70" class="keyColor">Description</tspan>: <tspan class="valueColor">AI Software Developer</tspan>
-<tspan x="760" y= "90" class="valueColor">(28.49%)</tspan>
-<tspan x="680" y= "90" class="valueColor">(7631d)</tspan>
-<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">20 years, 10 months, 20 days</tspan>
+<tspan x="760" y= "90" class="valueColor">(28.5%)</tspan>
+<tspan x="680" y= "90" class="valueColor">(7632d)</tspan>
+<tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">20 years, 10 months, 21 days</tspan>
 <tspan x="370" y="110" class="keyColor">Experience</tspan>: <tspan class="valueColor">3+ years</tspan>
 <tspan x="370" y="140" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, Rust, HTML</tspan>
 <tspan x="370" y="160" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">Spanish, English (Fluent)</tspan>
@@ -61,9 +61,9 @@ text, tspan {white-space: pre;}
 <tspan x="370" y="470">——————</tspan>
 <tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">64</tspan>
 <tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">95</tspan>
-<tspan x="520" y="510" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">84</tspan>
+<tspan x="520" y="510" class="keyColor">|   Stars</tspan>: <tspan class="valueColor">86</tspan>
 <tspan x="465" y="490">{
-<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">23</tspan>
+<tspan x="480" y="490" class="keyColor">Contributed</tspan>: <tspan class="valueColor">22</tspan>
 }</tspan>
 <tspan x="660" y="510" class="keyColor">|   Commits</tspan>: <tspan class="valueColor">3.7k</tspan>
 <tspan x="660" y="490" class="keyColor">|   Merged PRs</tspan>: <tspan class="valueColor">50 (54%)</tspan>
